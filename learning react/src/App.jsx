@@ -1,23 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 
-//state , component
-import { useState } from "react";
 const App = () => {
-  const [count, setCount] = useState(0);
-  // console.log(count);
-  // console.log(setCount);
+  const [todos, setTodos] = useState([
+    {
+      title: "learn react",
+      description: "learn react in 1 month",
+      isCompleted: false,
+    },
+    {
+      title: "learn node",
+      description: "learn node in 1 month",
+      isCompleted: false,
+    },
+  ]);
+
+  function addTodo() {
+    setTodos([
+      ...todos,
+      {
+        title: "new todo",
+        description: "learn react in 1 month",
+        isCompleted: false,
+      },
+    ]);
+  }
+
   return (
     <div>
-      <CustomButton count={count} setCount={setCount} />
+      <button onClick={addTodo}>Add a random todo</button>
+
+      {todos.map(function (todo, index) {
+        return (
+          <Todo key={index} title={todo.title} description={todo.description} />
+        );
+      })}
     </div>
   );
 };
 
-function CustomButton(props) {
-  function OnClickHandler() {
-    props.setCount(props.count + 1);
-  }
-  return <button onClick={OnClickHandler}>Counter : {props.count}</button>;
+function Todo(props) {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <p>{props.description}</p>
+    </div>
+  );
 }
 
 export default App;
