@@ -1,21 +1,23 @@
 import React from "react";
 
 //state , component
-
-let state = {
-  count: 0,
-};
+import { useState } from "react";
 const App = () => {
-  function onClickHandler() {
-    alert("Button Clicked");
-    state.count = state.count + 1;
-  }
-
+  const [count, setCount] = useState(0);
+  // console.log(count);
+  // console.log(setCount);
   return (
     <div>
-      <button onClick={onClickHandler}> Counter {state.count}</button>
+      <CustomButton count={count} setCount={setCount} />
     </div>
   );
 };
+
+function CustomButton(props) {
+  function OnClickHandler() {
+    props.setCount(props.count + 1);
+  }
+  return <button onClick={OnClickHandler}>Counter : {props.count}</button>;
+}
 
 export default App;
