@@ -32,7 +32,7 @@ const Todo = () => {
             },
           ])
         }
-      >
+      > 
         Add Todo
       </button>
       {todos.map((todo) => (
