@@ -1,20 +1,27 @@
 import React from "react";
 
-const CardWrapper = ({ innerComponent }) => {
+//wrapper component
+const CardWrapper = ({ children }) => {
   return (
     <div style={{ border: "2px solid black", padding: "10px" }}>
       <h2>Card Wrapper</h2>
-      {innerComponent}
+      {children}
     </div>
   );
 };
 
-const TextComponent = () => {
-  return <div>Hi there</div>;
-};
-
 const App = () => {
-  return <CardWrapper innerComponent={<TextComponent />} />;
+  return (
+    <>
+      <CardWrapper>
+        <div>Hi there</div>
+      </CardWrapper>
+
+      <CardWrapper>
+        <div>Hello there</div>
+      </CardWrapper>
+    </>
+  );
 };
 
 export default App;
