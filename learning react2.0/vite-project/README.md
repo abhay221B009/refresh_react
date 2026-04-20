@@ -1,16 +1,22 @@
-# React + Vite
+** Keys in react **
+Keys in react are used to
+keys are unique identifiers used in React to keep track of items in a list.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Why they matter
+Performance: They help React identify exactly which items changed, were added, or were removed, preventing unnecessary re-renders of the entire list.
 
-Currently, two official plugins are available:
+State Integrity: They ensure that component state (like text in an input field) stays attached to the correct item even if the list is reordered.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Quick Rules
+Be Unique: A key must be unique among its siblings (it doesn't have to be globally unique).
 
-## React Compiler
+Be Stable: Use permanent IDs from your data (like post.id) rather than temporary values like Math.random().
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Avoid Indexes: Don't use array indexes (0, 1, 2...) as keys if the list order can change, as this can cause UI bugs.
 
-## Expanding the ESLint configuration
+JavaScript
+// ✅ Best Practice: Using a unique ID
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<!-- <ul>
+  {items.map(item => <li key={item.id}>{item.text}</li>)}
+</ul> -->
