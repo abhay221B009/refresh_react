@@ -10,7 +10,7 @@ const App1 = () => {
         console.log(json);
         setTodos(json.todos);
       });
-    }, 5000);
+    }, 2000);
   }, []);
 
   return (
