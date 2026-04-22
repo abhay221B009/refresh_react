@@ -16,7 +16,7 @@ const App2 = () => {
       {todos && todos.length > 0 ? (
         todos.map((todo) => (
           <Todo
-            key={todo._id} // ✅ use _id if MongoDB
+            key={todo.id} // ✅ use _id if MongoDB
             title={todo.title}
             description={todo.description}
           />
