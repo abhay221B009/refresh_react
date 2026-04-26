@@ -1,5 +1,5 @@
 //todays agenda is useMemo
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { useState } from "react";
 
 const App4 = () => {
