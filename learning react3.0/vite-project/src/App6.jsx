@@ -1,14 +1,18 @@
-import React, { memo, useState } from "react";
+//Toodays agenda is :
+// Learn about useCallback and memo in react
+
+import React, { memo, useCallback, useState } from "react";
 
 const App6 = () => {
   const [count, setCount] = useState(0);
 
-  const onClick = () => {
+  const inputFunction = useCallback(() => {
     console.log("child clicked");
-  };
+  }, []);
+
   return (
     <div>
-      <Child onClick={onClick} />
+      <Child inputFunction={inputFunction} />
       <button
         onClick={() => {
           setCount(count + 1);
@@ -20,11 +24,11 @@ const App6 = () => {
   );
 };
 
-const Child = memo(({ onClick }) => {
+const Child = memo(({ inputFunction }) => {
   console.log("Child rendered");
   return (
     <div>
-      <button onClick={onClick}>Button clicked</button>
+      <button onClick={inputFunction}>Button clicked</button>
     </div>
   );
 });
